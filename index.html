@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Cards</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <style>
+       body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4; /* Fallback color */
+    background-image: url('https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjU0NmJhdGNoMy1teW50LTM0LWJhZGdld2F0ZXJjb2xvcl8xLmpwZw.jpg'); /* Replace with your image URL */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the image */
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+        h2, h4 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .product-card {
+            cursor: pointer;
+        }
+        .testimonial {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+        }
+        .social-icons i {
+            margin: 0 10px;
+            font-size: 24px;
+            color: #333;
+        }
+        .nav-link {
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #007bff;
+            background-color: rgba(0, 123, 255, 0.1);
+            border-radius: 5px;
+        }
+        .btn {
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            background-color: #007bff;
+            border: none;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .testimonial:hover {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+        /* Navbar styles */
+        .navbar {
+            background-color: #ffffff; /* Change this color to your desired navbar background */
+            padding-left: 40px; /* Add left padding */
+            padding-right: 40px; /* Add right padding */
+        }
+        .navbar-light .navbar-nav .nav-link {
+            color: #000; /* Text color for navbar links */
+        }
+        /* CSS Animations */
+        .animate-fade-in {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        .countdown {
+            font-size: 1.5rem;
+            color: #d9534f;
+        }
+        .social-icons a {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1); /* Optional: slightly enlarge the icon on hover */
+}
+
+.social-icons a:hover i {
+    color: #007bff; /* Change this color to your desired hover color */
+}
+
+
+    </style>
+</head>
+<body>
+
+<!-- Header with Logo and Navigation Menu -->
+<header class="bg-light py-3">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="https://img.freepik.com/premium-vector/logo-digital-shop-is-displayed-circle_1205884-4147.jpg" alt="Logo" class="me-2" style="height: 40px;">
+                <span class="h4 mb-0">My Store</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products"><i class="fas fa-box"></i> Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about"><i class="fas fa-info-circle"></i> About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+
+<div class="container mt-5" id="home">
+    <h2>Welcome to My Store!</h2>
+    <p>Explore our products below.</p>
+</div>
+
+<div class="container mt-5" id="products">
+    <div class="row">
+        <!-- Product Cards (Example) -->
+        <div class="col-md-4 product-card animate-fade-in">
+            <div class="card">
+                <img src="https://images.samsung.com/sg/smartphones/galaxy-s21/buy/s21_ultra_basicgroup_kv_mo_img.jpg" class="card-img-top" alt="Product Image">
+                <div class="card-body">
+                    <h5 class="card-title">Samsung Galaxy S21</h5>
+                    <button class="btn" data-bs-toggle="modal" data-bs-target="#buyNowModal">Buy Now</button>
+                </div>
+            </div>
+        </div>
+        <!-- Add more product cards as needed -->
+    </div>
+
+    <!-- Main Section for Showcasing a Specific Product -->
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <img id="mainProductImage" class="img-fluid animate-fade-in" alt="Product Image" src="https://images.samsung.com/sg/smartphones/galaxy-s21/buy/s21_ultra_basicgroup_kv_mo_img.jpg">
+        </div>
+        <div class="col-md-6">
+            <h2 id="mainProductTitle" class="h4">Samsung Galaxy S21</h2>
+            <p id="mainProductPrice" class="h5">$999</p>
+            <p id="mainProductDescription">The Samsung Galaxy S21 is the latest flagship smartphone from Samsung with top-of-the-line features.</p>
+            <button class="btn" data-bs-toggle="modal" data-bs-target="#buyNowModal">Buy Now</button>
+
+            <!-- Countdown Timer -->
+            <div class="countdown mt-3" id="countdown"></div>
+
+            <!-- Feature Section -->
+            <div class="mt-4">
+                <h4>Features</h4>
+                <div class="row">
+                    <div class="col-4 text-center animate-fade-in">
+                        <i class="fas fa-camera fa-2x mb-2"></i>
+                        <h5>Triple Camera</h5>
+                        <p>Capture stunning photos with a versatile camera setup.</p>
+                    </div>
+                    <div class="col-4 text-center animate-fade-in">
+                        <i class="fas fa-battery-full fa-2x mb-2"></i>
+                        <h5>Long Battery Life</h5>
+                        <p>Stay connected longer with a powerful battery.</p>
+                    </div>
+                    <div class="col-4 text-center animate-fade-in">
+                        <i class="fas fa-bolt fa-2x mb-2"></i>
+                        <h5>Fast Performance</h5>
+                        <p>Experience seamless multitasking and gaming.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="row mt-5" id="about">
+        <div class="col-12">
+            <h2>What Our Customers Say</h2>
+            <div id="testimonials" class="mt-4">
+                <div class="testimonial"></div>
+                <button id="prev" class="btn">Previous</button>
+                <button id="next" class="btn">Next</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer Section -->
+<footer class="text-center mt-5" id="contact">
+    <div class="container">
+        <h5>Contact Us</h5>
+        <p>Email: support@mystore.com</p>
+        <p>Phone: +91 12345 67890</p>
+        <div class="social-icons mt-3">
+            <a href="https://www.facebook.com/yourstore" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/yourstore" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/yourstore" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/yourstore" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<!-- Buy Now Modal -->
+<div class="modal fade" id="buyNowModal" tabindex="-1" aria-labelledby="buyNowModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="buyNowModalLabel">Order Form</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="orderForm">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Shipping Address</label>
+                        <textarea class="form-control" id="address" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Order</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button id="darkModeToggle" class="btn">Toggle Dark Mode</button>
+
+<script>
+    const testimonials = [
+        {
+            name: "John Doe",
+            review: "Absolutely love my Samsung Galaxy S21! The camera quality is amazing!",
+            rating: 5
+        },
+        {
+            name: "Jane Smith",
+            review: "The Dell Inspiron is perfect for my work from home setup. Highly recommend!",
+            rating: 4
+        },
+        {
+            name: "Alice Johnson",
+            review: "I never thought an air fryer could be this good. Cooking is so much easier now!",
+            rating: 5
+        }
+    ];
+
+    let currentTestimonialIndex = 0;
+
+    function displayCurrentTestimonial() {
+        const testimonial = testimonials[currentTestimonialIndex];
+        const testimonialDiv = document.querySelector('.testimonial');
+        testimonialDiv.innerHTML = `
+            <h5>${testimonial.name}</h5>
+            <p>${testimonial.review}</p>
+            <p><strong>Rating: ${testimonial.rating} / 5</strong></p>
+        `;
+    }
+
+    document.getElementById('next').addEventListener('click', function() {
+        currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+        displayCurrentTestimonial();
+    });
+
+    document.getElementById('prev').addEventListener('click', function() {
+        currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonials.length) % testimonials.length;
+        displayCurrentTestimonial();
+    });
+
+    // Automatically cycle through testimonials every 5 seconds
+    setInterval(() => {
+        currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+        displayCurrentTestimonial();
+    }, 5000);
+
+    // Initial display
+    displayCurrentTestimonial();
+
+    // Countdown Timer
+    const countdownElement = document.getElementById('countdown');
+    const endTime = new Date().getTime() + 3600 * 1000; // 1 hour countdown
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = endTime - now;
+
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdownElement.innerHTML = `${hours}h ${minutes}m ${seconds}s`;
+
+        if (distance < 0) {
+            clearInterval(countdownInterval);
+            countdownElement.innerHTML = "EXPIRED";
+        }
+    }
+
+    // Update countdown every second
+    const countdownInterval = setInterval(updateCountdown, 1000);
+    updateCountdown(); // Initial call
+
+    // Scroll-to-section feature
+    document.querySelectorAll('a.nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+    // Dark mode toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    let isDarkMode = false;
+
+    darkModeToggle.addEventListener('click', function() {
+        isDarkMode = !isDarkMode;
+        document.body.classList.toggle('dark-mode', isDarkMode);
+        
+        if (isDarkMode) {
+            document.body.style.backgroundColor = '#333';
+            document.body.style.color = '#fff';
+            darkModeToggle.innerText = 'Switch to Light Mode';
+        } else {
+            document.body.style.backgroundColor = '#f4f4f4';
+            document.body.style.color = '#333';
+            darkModeToggle.innerText = 'Switch to Dark Mode';
+        }
+    });
+
+    // Form submission
+    document.getElementById('orderForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Order submitted!'); // Placeholder for form submission
+        this.reset();
+        var modal = bootstrap.Modal.getInstance(document.getElementById('buyNowModal'));
+        modal.hide();
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>
